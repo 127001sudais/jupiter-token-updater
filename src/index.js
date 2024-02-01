@@ -46,34 +46,63 @@ var connection = new web3_js_1.Connection(network);
 function logConnection() {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            console.log('Connected to network:', network);
+            try {
+                console.log('Connected to network:', network);
+            }
+            catch (error) {
+                console.error('Error in logConnection:', error);
+            }
             return [2 /*return*/];
         });
     });
 }
-(function main() {
+// Define an async function to process tokens and liquidity pools
+function processData() {
     return __awaiter(this, void 0, void 0, function () {
         var error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, 4, , 5]);
-                    return [4 /*yield*/, logConnection()];
+                    _a.trys.push([0, 3, , 4]);
+                    return [4 /*yield*/, (0, api_1.processTokens)()];
                 case 1:
                     _a.sent();
-                    return [4 /*yield*/, (0, api_1.processTokens)()];
+                    return [4 /*yield*/, (0, api_1.processLiquidityPools)()];
                 case 2:
                     _a.sent();
-                    return [4 /*yield*/, (0, api_1.processLiquidityPools)()];
+                    return [3 /*break*/, 4];
                 case 3:
-                    _a.sent();
-                    return [3 /*break*/, 5];
-                case 4:
                     error_1 = _a.sent();
-                    console.error('Error in main function:', error_1);
-                    return [3 /*break*/, 5];
-                case 5: return [2 /*return*/];
+                    console.error('Error in processData:', error_1);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
             }
         });
     });
-})();
+}
+// Define the main function
+function main() {
+    return __awaiter(this, void 0, void 0, function () {
+        var error_2;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 3, , 4]);
+                    return [4 /*yield*/, logConnection()];
+                case 1:
+                    _a.sent();
+                    return [4 /*yield*/, processData()];
+                case 2:
+                    _a.sent();
+                    return [3 /*break*/, 4];
+                case 3:
+                    error_2 = _a.sent();
+                    console.error('Error in main function:', error_2);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
+            }
+        });
+    });
+}
+// Call the main function every 30 seconds
+setInterval(main, 30000);
