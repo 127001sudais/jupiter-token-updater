@@ -36,93 +36,68 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.processLiquidityPools = exports.processTokens = exports.getLiquidityPools = exports.getTokens = void 0;
-var axios_1 = require("axios");
-var constant_1 = require("../constants/constant");
-require('dotenv').config();
-// Function to get new token listings
-function getTokens() {
+exports.main = void 0;
+var web3_js_1 = require("@solana/web3.js");
+var api_1 = require("../api/api");
+var network = (0, web3_js_1.clusterApiUrl)('devnet');
+var connection = new web3_js_1.Connection(network);
+function logConnection() {
     return __awaiter(this, void 0, void 0, function () {
-        var response, error_1;
+        return __generator(this, function (_a) {
+            try {
+                console.log('Connected to network:', network);
+            }
+            catch (error) {
+                console.error('Error in logConnection:', error);
+            }
+            return [2 /*return*/];
+        });
+    });
+}
+function processData() {
+    return __awaiter(this, void 0, void 0, function () {
+        var error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    if (!constant_1.JUPITER_ALL) {
-                        throw new Error('JUPITER_ALL is not defined');
-                    }
-                    _a.label = 1;
+                    _a.trys.push([0, 3, , 4]);
+                    return [4 /*yield*/, (0, api_1.processTokens)()];
                 case 1:
-                    _a.trys.push([1, 3, , 4]);
-                    return [4 /*yield*/, axios_1.default.get(constant_1.JUPITER_ALL)];
+                    _a.sent();
+                    return [4 /*yield*/, (0, api_1.processLiquidityPools)()];
                 case 2:
-                    response = _a.sent();
-                    return [2 /*return*/, response.data];
+                    _a.sent();
+                    return [3 /*break*/, 4];
                 case 3:
                     error_1 = _a.sent();
-                    console.error("Failed to fetch tokens: ".concat(error_1));
+                    console.error('Error in processData:', error_1);
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];
             }
         });
     });
 }
-exports.getTokens = getTokens;
-// Function to query liquidity pools
-function getLiquidityPools() {
+function main() {
     return __awaiter(this, void 0, void 0, function () {
-        var response, error_2;
+        var error_2;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    if (!constant_1.LIQUIDITY_POOL_API) {
-                        throw new Error('TOKENS_API is not defined');
-                    }
-                    _a.label = 1;
+                    _a.trys.push([0, 3, , 4]);
+                    return [4 /*yield*/, logConnection()];
                 case 1:
-                    _a.trys.push([1, 3, , 4]);
-                    return [4 /*yield*/, axios_1.default.get(constant_1.LIQUIDITY_POOL_API)];
+                    _a.sent();
+                    return [4 /*yield*/, processData()];
                 case 2:
-                    response = _a.sent();
-                    return [2 /*return*/, response.data];
+                    _a.sent();
+                    return [3 /*break*/, 4];
                 case 3:
                     error_2 = _a.sent();
-                    console.error("Failed to fetch liquidity pools: ".concat(error_2));
+                    console.error('Error in main function:', error_2);
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];
             }
         });
     });
 }
-exports.getLiquidityPools = getLiquidityPools;
-// Function to process tokens
-function processTokens() {
-    return __awaiter(this, void 0, void 0, function () {
-        var tokens;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, getTokens()];
-                case 1:
-                    tokens = _a.sent();
-                    console.log('Tokens:', tokens);
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
-exports.processTokens = processTokens;
-// Function to process liquidity pools
-function processLiquidityPools() {
-    return __awaiter(this, void 0, void 0, function () {
-        var liquidityPools;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, getLiquidityPools()];
-                case 1:
-                    liquidityPools = _a.sent();
-                    console.log('Liquidity Pools:', liquidityPools);
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
-exports.processLiquidityPools = processLiquidityPools;
+exports.main = main;

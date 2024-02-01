@@ -1,16 +1,14 @@
 import axios from 'axios';
+import {TOKENS_API,LIQUIDITY_POOL_API,JUPITER_ALL} from '../constants/constant';
 require('dotenv').config();
-
-const TOKENS_API = process.env.TOKENS_API;
-const LIQUIDITY_POOL_API = process.env.LIQUIDITY_POOL_API;
 
 // Function to get new token listings
 export async function getTokens() {
-     if (!TOKENS_API) {
-        throw new Error('TOKENS_API is not defined');
+     if (!JUPITER_ALL) {
+        throw new Error('JUPITER_ALL is not defined');
     }
     try {
-        const response = await axios.get(TOKENS_API);
+        const response = await axios.get(JUPITER_ALL);
         return response.data;
     } catch (error) {
         console.error(`Failed to fetch tokens: ${error}`);
