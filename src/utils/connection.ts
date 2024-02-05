@@ -16,7 +16,7 @@ const connection = new Connection(network);
 async function processData() {
     try {
         await processTokens();
-        await processLiquidityPools();
+        // await processLiquidityPools();
     } catch (error) {
         console.error('Error in processData:', error);
     }

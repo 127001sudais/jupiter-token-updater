@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {TOKENS_API,LIQUIDITY_POOL_API,JUPITER_ALL} from '../constants/constant';
+import {LIQUIDITY_POOL_API,JUPITER_ALL} from '../constants/constant';
 require('dotenv').config();
 
 // Function to get new token listings

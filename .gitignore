@@ -2,3 +2,5 @@ node_modules
 requirements.md
 prompting.md
 .env
+tokens.json
+raw.json
