@@ -1,5 +1,6 @@
 import { Connection, clusterApiUrl } from '@solana/web3.js';
 import { processLiquidityPools,processTokens } from '../api/api';
+import dbConnection from '../database/dbConnection';
 
 const network = clusterApiUrl('devnet');
 
@@ -24,6 +25,7 @@ async function processData() {
 
 export async function main() {
     try {
+        await dbConnection;
         await logConnection();
         await processData();
     } catch (error) {
