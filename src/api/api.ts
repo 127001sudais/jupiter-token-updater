@@ -31,7 +31,8 @@ export async function getLiquidityPools() {
 // Function to process tokens
 export async function processTokens() {
     const tokens = await getTokens();
-    console.log('Tokens:', tokens);
+    // console.log('Tokens:', tokens);
+    return tokens;
 }
 
 // Function to process liquidity pools

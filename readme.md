@@ -6,8 +6,9 @@ This project is a Solana Sniper Bot designed to operate on the Raydium decentral
 
 1. Clone the repository:
    ```
-   git clone https://github.com/127001sudais/solana-sniper-bot.git
+   git clone <url>
    ```
+   
 2. Navigate to the project directory:
    ```
    cd solana-sniper-bot
@@ -22,5 +23,5 @@ This project is a Solana Sniper Bot designed to operate on the Raydium decentral
 To start the bot, run the following command in your terminal:
 
 ```
-node index.js
+npx esrun index.ts
 ```
