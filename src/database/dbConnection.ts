@@ -1,6 +1,6 @@
 import sqlite3 from "sqlite3";
 
-console.log('Attempting to connect to SQLite database...');
+console.log('⏳ Connecting SQLite database...');
 
 const dbConnection = new sqlite3.Database('./tokens.db', (err) => {
  if (err) {
