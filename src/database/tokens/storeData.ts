@@ -16,8 +16,12 @@ export async function storeData(data: any[]): Promise<any[]> {
 
   try {
     await Promise.all(checkPromises);
-    console.log(`✅ ${newTokensInserted.length} new tokens 🪙 stored successfully, excluding duplicates.`);
-    console.log('Newly listed tokens:', newTokensInserted);
+    if (newTokensInserted.length >  0) {
+      console.log(`✅ ${newTokensInserted.length} new tokens 🪙 stored successfully, excluding duplicates.`);
+      console.log('Newly listed tokens 🪙:', newTokensInserted);
+    } else {
+      console.log("⚠️ No new tokens 🪙 found!!!");
+    }
   } catch (error) {
     console.error("❌ Error during data processing:", error);
     throw error;

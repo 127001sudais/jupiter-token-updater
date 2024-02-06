@@ -5,13 +5,19 @@ import {dbConnection} from '../database/dbConnection';
 import { storeData } from '../database/tokens/storeData';
 
 const network = clusterApiUrl('devnet');
+let connection: Connection;
 
-const connection = new Connection(network);
+async function initSolanaConnection(){
+    if(!connection){
+        connection = new Connection(network);
+        console.log('✅✅✅ Connected to network:', network);
+    }
+    return connection;
+}
 
  async function logConnection() {
     try {
-        console.log('⏳ Connecting....to network:', network);
-        console.log('✅ Connected to network:', network);
+        await initSolanaConnection();
     } catch (error) {
         console.error('❌ Error in logConnection:', error);
     }
@@ -30,7 +36,6 @@ async function processData() {
 
 export async function main() {
     try {
-        console.log('🚀 Starting main function...')
         await dbConnection;
         await logConnection();
         await processData();
