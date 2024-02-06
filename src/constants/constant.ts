@@ -12,7 +12,7 @@ export const JUPITER_ALL= "https://token.jup.ag/all";
 export const JUPITER_PRICE_API = `https://price.jup.ag/v4/price?ids=SOL`;
 
 // DEXSCREENER API ENDPOINTS
-export const DEXSCREENER_API = "https://api.dexscreener.com/latest/dex/tokens/MNDEFzGvMt87ueuHvVU9VcTqsAP5b3fTGPsHuuPA5ey";
+export const DEXSCREENER_API = "https://api.dexscreener.com/latest/dex/tokens/";
 
 // DIA-price-api
 export const DIA_PRICE_API=`https://api.diadata.org/v1/assetQuotation/Solana/0x0000000000000000000000000000000000000000`;

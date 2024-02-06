@@ -1,8 +1,8 @@
 import { Connection, clusterApiUrl } from '@solana/web3.js';
 import { processLiquidityPools,processTokens } from '../api/api';
 
-import dbConnection from '../database/dbConnection';
-import { storeData } from '../database/operation';
+import {dbConnection} from '../database/dbConnection';
+import { storeData } from '../database/tokens/storeData';
 
 const network = clusterApiUrl('devnet');
 

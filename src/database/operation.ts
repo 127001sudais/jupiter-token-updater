@@ -1,4 +1,8 @@
-import dbConnection from "./dbConnection";
+/** THIS CODE IS NOT BEING USED, A MODULARIZED VERSION OF THIS CODE IS BEING USED 
+ * IN THE FOLDER src/database/token/storeData.ts
+*/
+
+import {dbConnection} from "./dbConnection";
 
 export async function storeData(data: any[]): Promise<any[]> {
   console.log("⏳⌛⏳ Checking and storing data...");
