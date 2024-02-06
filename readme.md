@@ -1,6 +1,6 @@
 # Solana Sniper Bot (Jupiter Edition)
 
-This project is a Solana Sniper Bot designed to operate on the Raydium decentralized exchange. It's built with Node.js and uses the Solana Web3.js library for interacting with the Solana blockchain.
+This project is a Solana Sniper Bot designed to operate on JUPITER station.
 
 ## Installation
 
