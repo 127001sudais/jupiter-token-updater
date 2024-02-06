@@ -6,7 +6,7 @@ const dbConnection = new sqlite3.Database('./tokens.db', (err) => {
  if (err) {
      console.error(err.message);
  } else {
-     console.log('SQLite connected');
+     console.log('SQLite connected ✅');
  }
 });
 
