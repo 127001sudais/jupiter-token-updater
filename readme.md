@@ -1,4 +1,4 @@
-# Solana Sniper Bot (Jupiter Edition)
+# Solana automated fetcher
 
 This project is a Solana Sniper Bot designed to operate on JUPITER station.
 
